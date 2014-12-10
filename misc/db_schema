@@ -1,0 +1,27 @@
+mysql> show tables;
++--------------------+
+| Tables_in_mitchief |
++--------------------+
+| judges             |
+| votes              |
++--------------------+
+2 rows in set
+
+mysql> describe judges;
++--------+----------+------+-----+---------+----------------+
+| Field  | Type     | Null | Key | Default | Extra          |
++--------+----------+------+-----+---------+----------------+
+| id     | int(11)  | NO   | PRI | NULL    | auto_increment |
+| passwd | char(32) | YES  | UNI | NULL    |                |
++--------+----------+------+-----+---------+----------------+
+2 rows in set
+
+mysql> describe votes;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| team_id  | int(11) | NO   | PRI | NULL    |       |
+| judge_id | int(11) | NO   | PRI | NULL    |       |
+| score    | int(11) | NO   |     | NULL    |       |
++----------+---------+------+-----+---------+-------+
+3 rows in set
