@@ -1,0 +1,23 @@
+upstream php_fpm_mitchief2012 {
+        server unix:/home/tao/web_app/_sockes/php5-fpm_mitchief2012.sock;
+}
+
+server {
+        listen [::]:80 ipv6only=off;
+        #listen   [::]:80 ipv6only=on;
+                #listen 80;
+        server_name mitchief2012.planetb612.info;
+        root /home/tao/web_app/mitchief2012;
+                index index.php;
+
+        access_log /var/log/nginx/mitchief2012.access.log;
+        error_log /var/log/nginx/mitchief2012.error.log;
+
+        client_max_body_size 10m;
+
+                location ~ \.php$ {
+                                include /etc/nginx/fastcgi_params;
+                                fastcgi_index index.php;
+                fastcgi_pass unix:/home/tao/web_app/_sockets/php5-fpm_mitchief2012.sock;
+                }
+}
